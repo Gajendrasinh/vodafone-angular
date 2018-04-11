@@ -23,7 +23,14 @@ export class CreateTopupComponent implements OnInit {
   constructor(private createTopupService: CreateTopupService, private router: Router) { }
 
   ngOnInit() {
-   this.createTopupService.getAccountsDetails().subscribe(res => this.accountDetais = res);
+    if(localStorage.getItem("topup")){
+      this.user = JSON.parse(localStorage.getItem("topup"));
+    }
+    this.createTopupService.getAccountsDetails().subscribe(res =>{
+      this.accountDetais = res
+      this.user.financialAccount = res[0].id+'-'+res[0].name+'-'+res[0].number;
+      console.log("this.user.financialAccount " +this.user.financialAccount)
+    });
   }
 
   actionOnSubmit(user){
@@ -31,6 +38,7 @@ export class CreateTopupComponent implements OnInit {
     if(isMobileAssociat === ''){
       alert("The selected account does not have mobile subscriptions. In order to proceed, Please select an account with mobile subscriptions.")
     }else{
+      localStorage.setItem("topup", JSON.stringify(user));
       //this.user.phoneNumber = "+ 353 08 "+this.user.phoneNumber;
       this.user.accountName = (user.financialAccount).split("-")[1];
       this.user.financialAccount = (user.financialAccount).split("-")[0];      

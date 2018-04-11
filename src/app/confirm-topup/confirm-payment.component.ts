@@ -29,6 +29,7 @@ export class ConfirmPaymentComponent implements OnInit {
         if(res.code ="Success"){
           this.createTopupService.changeMessage(res);
           this.router.navigate(['success']);
+          localStorage.removeItem("topup");
         }
       }
     );
