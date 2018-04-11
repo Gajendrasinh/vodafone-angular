@@ -1,0 +1,53 @@
+.account-section {
+    background-color: #ddd;
+    padding: 10px 0px;
+}
+.input-section > .form-group{
+    margin-bottom: 0
+}
+select#accountNo {
+    display: inline;
+    width: 30%;
+    margin-left: 10px;
+}
+
+.topup-option {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.topup-option > li {
+    display: inline-block;
+    margin-right: 15px;
+    text-align: center;
+}
+.topup-option > li > input {
+    visibility:hidden;
+}
+.topup-option > li label {
+    cursor: pointer;
+    display: inline-block;
+    line-height: 50px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #ddd;
+}
+.topup-option > li > input:checked + label {
+    color: white;
+}
+.topup-form{
+    margin-bottom: 30px;
+}
+form.topup-form > .form-group {
+    width: 70%;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #dedede;
+}
+#mobile{
+    width: 30%;
+    display: inline;
+}
+.no-border{
+    border-bottom: none !important;
+}

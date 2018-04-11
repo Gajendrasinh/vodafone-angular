@@ -1,0 +1,20 @@
+<div class="container">
+  <h1>You are about to Top up</h1>
+  <p>Please confirm the details below are correct</p><br/>
+
+  <label>
+    Mobile number you want to top up
+  </label>
+  <div>+352 08 {{message.mobile}} </div><br/>
+
+  <label>Amount </label>
+  <div> &euro; {{message.rechargeValue}} </div> <br/>
+
+  <label>Account </label>
+  <div> {{message.accountNo}}</div><br/>
+
+  <button class="btn" (click)="confirm()">Confirm</button>
+  <button class="btn" (click)="backToCreate()">Back</button>
+</div>
+
+<!-- {{message | json}} -->

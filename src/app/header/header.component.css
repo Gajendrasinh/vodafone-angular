@@ -1,0 +1,22 @@
+.brand-log {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200px;
+}
+.contain-place > h2 {
+    border-bottom: 2px solid #000;
+    padding-bottom: 10px;
+    width: 60%;
+}
+.contain-place > .breadcrumb {
+    background-color: transparent;
+    padding-left: 0;
+}
+.breadcrumb>li+li:before {
+    content: ">";
+    color: #484545;
+}
+.jumbotron{
+    margin-bottom: 0;
+}

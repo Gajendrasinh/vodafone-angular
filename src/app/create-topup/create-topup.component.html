@@ -1,0 +1,39 @@
+<form class="topup-form" #myForm="ngForm" (ngSubmit)="actionOnSubmit(user)" novalidate>
+<div class="account-section">
+    <div class="input-section container">
+      <div class="form-group">
+          <label for="account"> Account</label>
+          <select  id="accountNo" class="form-control" required name="accountNo" #accountNo="ngModel" [(ngModel)]="user.accountNo">
+            <option selected value="124 - Arjun Family">124 - Arjun Family</option>
+          </select>
+        </div>
+      </div>
+  </div>
+
+<div class="container">
+  <h1>Top up</h1>
+      <div class="form-group">
+        <label for="mobile">Insert phone number:</label> <br/>
+        <span>+352 08</span>
+        <input type="text" class="form-control" id="mobile" minlength="8" maxlength="8" placeholder="Eg. 7845124578" name="mobile" #mobile="ngModel" [(ngModel)]="user.mobile" required >
+      </div>
+      <div class="form-group">
+        <label for="top">Top up with</label> <br/>
+        <ul class="topup-option">
+            <li *ngFor="let recharge of rechargeValues">
+                <input type='radio' value='{{recharge.rechargeValue}}' name='rechargeValue' id='radio{{recharge.id}}' #rechargeValue="ngModel" [(ngModel)]="user.rechargeValue" required/>
+                <label for='radio{{recharge.id}}'>{{recharge.rechargeValue}}&euro;</label>
+            </li>
+        </ul>
+
+        <label class="checkbox-inline"><input type="checkbox" #isRecurring="ngModel" [(ngModel)]="user.isRecurring" name="isRecurring" >Turn this top up into a recurring top up</label>
+      </div>
+      <div class="form-group no-border">
+          <label for="top">Payment</label> 
+          <p>The payment will be processed in the account joyfamily in the next bill</p>
+          <label class="checkbox-inline"><input type="checkbox" #isTCAccepted="ngModel" [(ngModel)]="user.isTCAccepted" name="isTCAccepted" required >I've read and accept terms & conditions</label>
+      </div>
+
+      <button type="submit" class="btn" [disabled]='!myForm.valid'>Continue</button>
+    </div>
+</form>
