@@ -2,8 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule, RequestOptions, XHRBackend } from '@angular/http';
 import {FormsModule} from '@angular/forms'
-import {ToasterModule, ToasterService} from 'angular2-toaster';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { PNotifySettings, PNotifyService } from 'ng2-pnotify';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -27,10 +27,9 @@ import { SuccessComponent } from './success/success.component';
     FormsModule,
     AppRoutingModule,
     HttpModule,
-    BrowserAnimationsModule,
-    ToasterModule.forRoot()
+    BrowserAnimationsModule
   ],
-  providers: [HttpService, CreateTopupService],
+  providers: [HttpService, CreateTopupService, PNotifyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

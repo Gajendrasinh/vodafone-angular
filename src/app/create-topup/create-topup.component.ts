@@ -36,7 +36,7 @@ export class CreateTopupComponent implements OnInit {
   actionOnSubmit(user){
     var isMobileAssociat = (user.financialAccount).split("-")[2];
     if(isMobileAssociat === ''){
-      alert("The selected account does not have mobile subscriptions. In order to proceed, Please select an account with mobile subscriptions.")
+      this.createTopupService.error("The selected account does not have mobile subscriptions. In order to proceed, Please select an account with mobile subscriptions.")
     }else{
       localStorage.setItem("topup", JSON.stringify(user));
       //this.user.phoneNumber = "+ 353 08 "+this.user.phoneNumber;

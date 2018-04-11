@@ -19,7 +19,8 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "node_modules/angular2-toaster/toaster.css",
+        "../node_modules/pnotify/dist/pnotify.css",
+		    "../node_modules/pnotify/dist/pnotify.buttons.css",
         "styles.css"
       ],
       "scripts": [],
