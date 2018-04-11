@@ -6,23 +6,24 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import { HttpService } from "./http.service";
 import { User } from '../helpers/create-topup';
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
 @Injectable()
 export class CreateTopupService {
 
-  private BaseURL: string = "https://jsonplaceholder.typicode.com/"
+  private BaseURL: string = "http://localhost:8080/"
   constructor(public _http: HttpService) { }
 
   private messageSource = new BehaviorSubject<any>('');
   currentMessage = this.messageSource.asObservable();
 
   getAccountsDetails() {
-      return this._http.get(this.BaseURL+"users").map( response => response.json() );
+      return this._http.get(this.BaseURL+"topups/accounts").map( response => response.json() );
   }
 
-  saveTopUp( User ): Observable<User> {        
-      return this._http.post( this.BaseURL+'create-top', User )
-          .map( response => response.json() as User );
+  saveTopUp( User ) {        
+      return this._http.post( this.BaseURL+'topups/recharge', User )
+          .map( response => response.json());
   }
 
   changeMessage(User) {

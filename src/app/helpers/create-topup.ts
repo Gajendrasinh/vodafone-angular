@@ -1,9 +1,11 @@
 export class User { 
-    accountNo: string;
-    mobile: string;
+      financialAccount : string;
+      accountName: string;
+      accountNo: string;
+      phoneNumber: string;
       rechargeValue: string;
       isRecurring: boolean = false;
-      isTCAccepted: boolean;
+      termsAndConditionResult: boolean;
       constructor() {
       }
   } 

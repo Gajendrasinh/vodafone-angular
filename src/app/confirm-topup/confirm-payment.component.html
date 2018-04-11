@@ -5,13 +5,13 @@
   <label>
     Mobile number you want to top up
   </label>
-  <div>+352 08 {{message.mobile}} </div><br/>
+  <div>+ 353 08 {{message.phoneNumber}} </div><br/>
 
   <label>Amount </label>
   <div> &euro; {{message.rechargeValue}} </div> <br/>
 
   <label>Account </label>
-  <div> {{message.accountNo}}</div><br/>
+  <div> {{message.financialAccount}} - {{message.accountName}}</div><br/>
 
   <button class="btn" (click)="confirm()">Confirm</button>
   <button class="btn" (click)="backToCreate()">Back</button>

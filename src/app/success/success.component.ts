@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CreateTopupService } from '../service/create-topup.service';
 
 @Component({
   selector: 'app-success',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SuccessComponent implements OnInit {
 
-  constructor() { }
+  message:any;
+  
+  constructor(public createTopupService : CreateTopupService) { }
 
   ngOnInit() {
+    this.createTopupService.currentMessage.subscribe(message => this.message = message)
   }
 
 }
